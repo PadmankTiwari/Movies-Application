@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.example.movieapplication.database.dao.UserDao
 import com.example.movieapplication.database.entity.User
 
-@Database(entities = [User::class], version = 5)
+@Database(entities = [User::class], version = 10)
 abstract class Database : RoomDatabase() {
 
     abstract fun userDao(): UserDao

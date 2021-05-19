@@ -43,36 +43,6 @@ android {
     flavorDimensions 'default'
     productFlavors {
 
-        dev {
-            dimension 'default'
-            applicationIdSuffix '.dev'
-            resValue "string", "app_name", DEV_APP_NAME
-            manifestPlaceholders.hostName = DEV_HOST_NAME
-            buildConfigField 'String', 'DATABASE', DEV_DATABASE
-            buildConfigField 'String', 'BASE_URL', DEV_API_URL
-            buildConfigField 'String', 'DOMAIN', DEV_DEFAULT_DOMAIN_URL
-        }
-
-        qat {
-            dimension 'default'
-            applicationIdSuffix '.qat'
-            resValue "string", "app_name", QAT_APP_NAME
-            manifestPlaceholders.hostName = QAT_HOST_NAME
-            buildConfigField 'String', 'DATABASE', QAT_DATABASE
-            buildConfigField 'String', 'BASE_URL', QAT_API_URL
-            buildConfigField 'String', 'DOMAIN', QAT_DEFAULT_DOMAIN_URL
-        }
-
-        uat {
-            dimension 'default'
-            applicationIdSuffix '.uat'
-            resValue "string", "app_name", UAT_APP_NAME
-            manifestPlaceholders.hostName = UAT_HOST_NAME
-            buildConfigField 'String', 'DATABASE', UAT_DATABASE
-            buildConfigField 'String', 'BASE_URL', UAT_API_URL
-            buildConfigField 'String', 'DOMAIN', UAT_DEFAULT_DOMAIN_URL
-        }
-
         production {
             dimension 'default'
             resValue "string", "app_name", APP_NAME
