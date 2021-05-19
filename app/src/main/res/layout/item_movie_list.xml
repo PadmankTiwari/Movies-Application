@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movieItem"
+            type="com.example.api.model.response.Result" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cdListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_padding_4dp"
+        android:layout_marginBottom="@dimen/margin_padding_4dp"
+        app:cardElevation="@dimen/margin_padding_8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_padding_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivUpVote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_16dp"
+                android:onClick="@{clickListener}"
+                android:rotation="180"
+                android:src="@drawable/ic_down"
+                app:layout_constraintBottom_toTopOf="@id/tvVote"
+                app:layout_constraintEnd_toEndOf="@id/tvVote"
+                app:layout_constraintStart_toStartOf="@id/tvVote"
+                app:layout_constraintTop_toTopOf="@id/ivPoster" />
+
+            <TextView
+                android:id="@+id/tvVote"
+                text="@{movieItem.voting}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_padding_18dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/ivDownVote"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivUpVote" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDownVote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{clickListener}"
+                android:src="@drawable/ic_down"
+                app:layout_constraintBottom_toTopOf="@id/tvCount"
+                app:layout_constraintEnd_toEndOf="@id/tvVote"
+                app:layout_constraintStart_toStartOf="@id/tvVote"
+                app:layout_constraintTop_toBottomOf="@id/tvVote" />
+
+            <TextView
+                android:id="@+id/tvCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_padding_16dp"
+                android:text="@string/votes"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                app:layout_constraintBottom_toBottomOf="@id/ivPoster"
+                app:layout_constraintEnd_toEndOf="@id/ivDownVote"
+                app:layout_constraintStart_toStartOf="@id/ivDownVote"
+                app:layout_constraintTop_toBottomOf="@id/ivDownVote" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ivPoster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/margin_padding_5dp"
+                android:layout_margin="@dimen/margin_padding_24dp"
+                app:layout_constraintBottom_toTopOf="@id/btnWatchTrailer"
+                app:layout_constraintStart_toEndOf="@id/tvVote">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="100dp"
+                    android:layout_height="155dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_foreground"
+                    app:layout_constraintDimensionRatio="H,1:2"
+                    bind:imageUrl="@{movieItem.poster}" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMovieName"
+                android:layout_width="@dimen/match_constraints"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_padding_5dp"
+                android:text="@{movieItem.title}"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivPoster"
+                app:layout_constraintTop_toTopOf="@id/ivPoster" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_2dp"
+                android:text="@string/genre"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tvMovieName"
+                app:layout_constraintTop_toBottomOf="@id/tvMovieName" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGenreValue"
+                android:layout_width="@dimen/match_constraints"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{movieItem.genre}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                app:layout_constraintEnd_toEndOf="@id/tvMovieName"
+                app:layout_constraintStart_toEndOf="@id/tvGenre"
+                app:layout_constraintTop_toTopOf="@id/tvGenre" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDirector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_2dp"
+                android:text="@string/director"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tvGenre"
+                app:layout_constraintTop_toBottomOf="@id/tvGenre" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDirectorValue"
+                android:layout_width="@dimen/match_constraints"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{movieItem.directorList}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                app:layout_constraintEnd_toEndOf="@id/tvMovieName"
+                app:layout_constraintStart_toEndOf="@id/tvDirector"
+                app:layout_constraintTop_toTopOf="@id/tvDirector" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_2dp"
+                android:text="@string/starring"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tvDirector"
+                app:layout_constraintTop_toBottomOf="@id/tvDirector" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStarsValue"
+                android:layout_width="@dimen/match_constraints"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{movieItem.starsList}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                app:layout_constraintEnd_toEndOf="@id/tvMovieName"
+                app:layout_constraintStart_toEndOf="@id/tvStars"
+                app:layout_constraintTop_toTopOf="@id/tvStars" />
+
+            <LinearLayout
+                android:id="@+id/llDetails1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_2dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@id/tvStars"
+                app:layout_constraintTop_toBottomOf="@id/tvStars">
+
+                <TextView
+                    android:id="@+id/tvMins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_padding_2dp"
+                    android:text="@{movieItem.runningTime}"
+                    android:textAppearance="?attr/textAppearanceBody2" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="@dimen/margin_padding_1dp"
+                    android:layout_height="@dimen/margin_padding_12dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/grey"
+                    android:paddingHorizontal="@dimen/margin_padding_4dp" />
+
+                <TextView
+                    android:id="@+id/tvLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_padding_2dp"
+                    android:text="@{movieItem.language}"
+                    android:textAppearance="?attr/textAppearanceBody2" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="@dimen/margin_padding_1dp"
+                    android:layout_height="@dimen/margin_padding_12dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/grey"
+                    android:paddingHorizontal="@dimen/margin_padding_4dp" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_padding_2dp"
+                    android:text="@{movieItem.release}"
+                    android:textAppearance="?attr/textAppearanceBody2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llDetails2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_2dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="@id/tvStars"
+                app:layout_constraintTop_toBottomOf="@id/llDetails1">
+
+                <TextView
+                    android:id="@+id/tvView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_padding_2dp"
+                    android:text="@{movieItem.views}"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/light_blue" />
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="@dimen/margin_padding_1dp"
+                    android:layout_height="@dimen/margin_padding_12dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/light_blue"
+                    android:paddingHorizontal="@dimen/margin_padding_4dp" />
+
+                <TextView
+                    android:id="@+id/tvVotes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/margin_padding_2dp"
+                    android:text="@{movieItem.votes}"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/light_blue" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnWatchTrailer"
+                android:layout_width="@dimen/match_constraints"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_padding_4dp"
+                android:backgroundTint="@color/light_blue"
+                android:onClick="@{clickListener}"
+                android:text="@string/watch_trailer"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivPoster" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

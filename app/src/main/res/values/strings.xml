@@ -1,0 +1,52 @@
+<resources>
+
+    <!--Error Messages-->
+    <string name="something_went_wrong_error">Something Went Wrong</string>
+    <string name="error_network" translatable="false">A network error has occurred.Please try again.</string>
+    <string name="error_no_internet_connection" translatable="false">No internet found. Check your connection or try again.</string>
+    <string name="error_server" translatable="false">A server error has occurred.Please try again.</string>
+    <string name="error_unknown" translatable="false">An unknown error has occurred.Please try again.</string>
+    <string name="no_email_found_error" translatable="false">You do not have associated email address with your facebook account, please choose another option to login.</string>
+    <string name="error_auth" translatable="false">You do not have permissions to access the service.</string>
+    <string name="invalid_credential" translatable="false">Invalid Credential</string>
+
+    <!--Login Fragment-->
+    <string name="welcome">Welcome</string>
+    <string name="login">Login</string>
+    <string name="not_a_user_sign_up_here">Not a user sign up HERE!</string>
+
+    <!--Sign Up Fragment-->
+    <string name="sign_up">Sign Up</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="choose_profession">Choose Profession</string>
+    <string name="enter_e_mail">Enter E-mail</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="username_empty_error">Username is Required</string>
+    <string name="user_number_empty_error">Phone number is Required</string>
+    <string name="user_number_length_error">Phone number must be 10 digits</string>
+    <string name="user_profession_empty_error">User profession is required</string>
+    <string name="user_email_empty_error">Email is required</string>
+    <string name="user_email_incorrect_error">Valid e-mail is required</string>
+    <string name="user_password_empty_error">Password is required</string>
+    <string name="sign_me_up">Sign Me Up</string>
+    <string name="sign_up_successful">User Added Successfully</string>
+
+    <!--Home Fragment-->
+    <string name="movies_list">Movies List</string>
+    <string name="votes">Votes</string>
+    <string name="genre">Genre:</string>
+    <string name="director">Director:</string>
+    <string name="starring">Starring:</string>
+    <string name="watch_trailer">Watch Trailer</string>
+
+    <!--Menu Fragment-->
+    <string name="company_info">Company Info</string>
+    <string name="company_name">Company Name:</string>
+    <string name="address">Address:</string>
+    <string name="email">Email:</string>
+    <string name="phone">Phone:</string>
+    <string name="logout">Logout</string>
+    <string name="logout_successful">User Logged Out</string>
+
+</resources>

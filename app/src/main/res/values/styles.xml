@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--TIL Style-->
+    <style name="Widget.MovieApplication.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="hintAnimationEnabled">false</item>
+        <item name="hintEnabled">false</item>
+        <item name="errorTextColor">?attr/colorError</item>
+        <item name="errorTextAppearance">?attr/textAppearanceSubtitle2</item>
+        <item name="hintTextAppearance">?attr/textAppearanceBody1</item>
+        <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+        <item name="boxBackgroundColor">?colorSurface</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+    </style>
+
+</resources>

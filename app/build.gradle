@@ -1,0 +1,168 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+ext.versionMajor = 1
+ext.versionMinor = 0
+ext.versionPatch = 0
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.example.movieapplication"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode generateVersionCode()
+        versionName generateVersionName()
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'default'
+    productFlavors {
+
+        dev {
+            dimension 'default'
+            applicationIdSuffix '.dev'
+            resValue "string", "app_name", DEV_APP_NAME
+            manifestPlaceholders.hostName = DEV_HOST_NAME
+            buildConfigField 'String', 'DATABASE', DEV_DATABASE
+            buildConfigField 'String', 'BASE_URL', DEV_API_URL
+            buildConfigField 'String', 'DOMAIN', DEV_DEFAULT_DOMAIN_URL
+        }
+
+        qat {
+            dimension 'default'
+            applicationIdSuffix '.qat'
+            resValue "string", "app_name", QAT_APP_NAME
+            manifestPlaceholders.hostName = QAT_HOST_NAME
+            buildConfigField 'String', 'DATABASE', QAT_DATABASE
+            buildConfigField 'String', 'BASE_URL', QAT_API_URL
+            buildConfigField 'String', 'DOMAIN', QAT_DEFAULT_DOMAIN_URL
+        }
+
+        uat {
+            dimension 'default'
+            applicationIdSuffix '.uat'
+            resValue "string", "app_name", UAT_APP_NAME
+            manifestPlaceholders.hostName = UAT_HOST_NAME
+            buildConfigField 'String', 'DATABASE', UAT_DATABASE
+            buildConfigField 'String', 'BASE_URL', UAT_API_URL
+            buildConfigField 'String', 'DOMAIN', UAT_DEFAULT_DOMAIN_URL
+        }
+
+        production {
+            dimension 'default'
+            resValue "string", "app_name", APP_NAME
+            manifestPlaceholders.hostName = HOST_NAME
+            buildConfigField 'String', 'DATABASE', DATABASE
+            buildConfigField 'String', 'BASE_URL', API_URL
+            buildConfigField 'String', 'DOMAIN', DEFAULT_DOMAIN_URL
+        }
+
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+private Integer generateVersionCode() {
+    return 24 * 10000000 + ext.versionMajor * 10000 + ext.versionMinor * 100 + ext.versionPatch
+}
+
+private String generateVersionName() {
+    return "${ext.versionMajor}.${ext.versionMinor}.${ext.versionPatch}"
+}
+
+dependencies {
+
+    implementation project(path: ':api')
+
+    //kotlin
+    implementation deps.kotlin.stdlib
+
+    //support
+    implementation deps.support.app_compat
+    implementation deps.support.core_ktx
+    implementation deps.support.design
+    implementation deps.support.fragment_runtime
+    implementation deps.support.fragment_runtime_ktx
+    kapt deps.support.annotations
+
+    //constraint layout
+    implementation deps.constraint_layout
+
+    //junit testing
+    testImplementation deps.junit.junit
+    androidTestImplementation deps.junit.ext_junit
+
+    //espresso
+    androidTestImplementation deps.espresso.core
+
+    //lifecycle
+    implementation deps.lifecycle.livedata_ktx
+    implementation deps.lifecycle.viewmodel_ktx
+
+    //paging
+    implementation deps.paging
+
+    //JetPack Security
+    implementation deps.security
+
+    //Glide
+    implementation deps.glide.runtime
+    implementation deps.glide.compiler
+
+    //navigation
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui_ktx
+
+    //retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.okHttp.okHttp_logging_interceptor
+    implementation deps.okHttp.okHttp
+
+    //room
+    implementation deps.room.runtime
+    implementation deps.room.ktx
+    kapt deps.room.compiler
+
+    //hilt
+    implementation deps.hilt.android
+    implementation deps.hilt.viewmodel
+    kapt deps.hilt.compiler
+    kapt deps.hilt.androidCompiler
+}

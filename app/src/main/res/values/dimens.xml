@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="match_constraints">0dp</dimen>
+    <dimen name="margin_padding_1dp">1dp</dimen>
+    <dimen name="margin_padding_2dp">2dp</dimen>
+    <dimen name="margin_padding_4dp">4dp</dimen>
+    <dimen name="margin_padding_5dp">5dp</dimen>
+    <dimen name="margin_padding_8dp">8dp</dimen>
+    <dimen name="margin_padding_12dp">12dp</dimen>
+    <dimen name="margin_padding_16dp">16dp</dimen>
+    <dimen name="margin_padding_18dp">18dp</dimen>
+    <dimen name="margin_padding_24dp">24dp</dimen>
+    <dimen name="margin_padding_32dp">32dp</dimen>
+    <dimen name="margin_padding_100dp">100dp</dimen>
+</resources>

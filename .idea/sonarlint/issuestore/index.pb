@@ -1,0 +1,31 @@
+
+w
+Gapp/src/main/java/com/example/movieapplication/ui/base/BaseViewModel.kt,3\f\3f8ce7b61e78de7624f6017012711b64a5284be1
+P
+ api/src/main/AndroidManifest.xml,0\2\0268b42e566c35aab8cf10dd82cf88d0a04f2e89
+@
+api/build.gradle,9\a\9a557c682b145d376083b076557250a7b23bead3
+^
+.api/src/main/java/com/example/api/ApiClient.kt,1\0\10d003b316b7ca7e4a77bb66d08c54b296b12e95
+{
+Kapp/src/main/java/com/example/movieapplication/ui/splash/SplashViewModel.kt,5\a\5a2fb28dc069fdd0495a3fa2d62bc2b0c10b62a8
+~
+Napp/src/main/java/com/example/movieapplication/data/ApiExceptionInterceptor.kt,4\8\48226b03b2803b82b2de9a3023362b282fbdbffc
+s
+Capi/src/main/java/com/example/api/model/request/MovieListRequest.kt,d\4\d455ff58dc55e13b922ddf46069021390393c689
+A
+gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
+E
+app/gradle.properties,9\4\94e3e10af8bb8062a0d4e9b8f6ce8b7daeeb814f
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+?
+versions.gradle,a\8\a8e804beb3174b2650db161f81257656db32888b
+s
+Capp/src/main/java/com/example/movieapplication/data/model/Result.kt,a\a\aa91a0627dd7700cb912962e427f547053e3a74f
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+g
+7api/src/main/java/com/example/api/service/ApiService.kt,5\1\51784fa8b7dfe5a2bb7459f28b99851a230d43c5
+u
+Eapi/src/main/java/com/example/api/model/response/MovieListResponse.kt,f\c\fcaf2daebdad95de0b84add59cd047b8828ac791
